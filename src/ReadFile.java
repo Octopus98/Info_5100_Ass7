@@ -1,34 +1,16 @@
+/**
+ * Assignment7
+ * [Yuhao Zhang]
+ * [002743843]
+ * [Section08]
+ */
+
+
 import java.io.*;
 import java.util.*;
 
 
 public class ReadFile {
-    public static ArrayList<String> readFileToArrList(String filePath){
-//        String file = FlatFileGraphic.class.getResource("")+filePath;
-        File csv = new File(filePath);
-
-        InputStreamReader inputStreamReader = null;
-        BufferedReader br = null;
-        try {
-            inputStreamReader = new InputStreamReader(new FileInputStream(csv), "UTF-8");
-            br = new BufferedReader(inputStreamReader);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        String line = "";
-        ArrayList<String> record = new ArrayList<>();
-        try {
-            line = br.readLine();
-            while (line != null){
-                System.out.println(line);
-                record.add(line);
-            }
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-        return record;
-    }
     public static String readFile(String filePath) {
         String res;
         StringBuilder sb = new StringBuilder();
@@ -53,29 +35,19 @@ public class ReadFile {
         return res;
     }
 
-    /*
-     * function for writing the input file to another
-     */
-    public static String writeIn(String writeFileName, String readFileName) {
+//write files
+    public static String writeFile(String writeFileName, String readFileName) {
         String readFilePath = GUI.class.getResource("") + readFileName;
         readFilePath = readFilePath.split(":")[1];
         String writeFilePath = GUI.class.getResource("") + writeFileName;
         writeFilePath = writeFilePath.split(":")[1];
-//        String path = "/Users/shengjiemao/Desktop/readFile/src/";
-//        String contentPath = "/Users/shengjiemao/Desktop/readFile/src/" + readFileName;
         File file;
         String writer;
         StringBuilder sb;
         try {
-            /*
-             * create new file
-             */
             file = new File(writeFilePath);
             file.createNewFile();
 
-            /*
-             * update the content from file input to new file
-             */
             BufferedWriter bw = new BufferedWriter(new FileWriter(file));
             InputStreamReader br = new InputStreamReader(new FileInputStream(readFilePath));
             BufferedReader reader = new BufferedReader(br);
@@ -89,9 +61,7 @@ public class ReadFile {
                 String[] sep = writer.split(",");
                 bw.append(sep[0] + "," + sep[1] + "," + sep[2] + "\n");
 
-                /*
-                 * store the updated first five lines
-                 */
+
                 if (i < 6) {
                     sb.append(sep[0] + "," + sep[1] + "," + sep[2] + "\n");
                     i++;

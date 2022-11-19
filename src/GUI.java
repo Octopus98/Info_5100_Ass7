@@ -83,7 +83,7 @@ public class GUI {
             public void actionPerformed(ActionEvent e) {
                 String writeFileName = writeText.getText();
                 String readFileName = readText.getText();
-                String writeOut = ReadFile.writeIn(writeFileName, readFileName);
+                String writeOut = ReadFile.writeFile(writeFileName, readFileName);
                 displayFile2.setText(writeOut);
                 displayFile2.setWrapStyleWord(true);
                 frame.setVisible(true);
@@ -92,43 +92,5 @@ public class GUI {
         frame.add(panel);
         frame.setVisible(true);
 
-//        JButton calculate = new JButton("Click to calculate score");
-//        calculate.setBounds(400, 400, 200,35);
-//        //Listener method to calculate
-//        calculate.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                String fileName =
-//                try {
-//                    double total = Double.parseDouble(totalText.getText());
-//                    double earned = Double.parseDouble(earnedText.getText());
-//                    double percent = Double.parseDouble(percentText.getText());
-//                    double grade = calculate(total, earned, percent);
-//                    String str = String.valueOf(grade);
-//                    output(str);
-//                    panel.add(weightedScore);
-//                    frame.setVisible(false);
-//                    frame.setVisible(true);
-//                }catch (Exception exception) {
-//                    System.out.println("Please check your input");
-//                }
-////                System.out.println("test");
-//            }
-//        });
-//        panel.add(calculate);
-//        frame.add(panel);
-//        frame.setVisible(true);
-//
-//    }
-//
-//    //method for displaying final result
-//    private static void output(String str){
-//        weightedScore = new JLabel("Weighted Score:  " + str);
-//        weightedScore.setBounds(400, 450, 200, 35);
-//    }
-//
-//    private static double calculate(double total, double earned, double percent){
-//        return earned/total*percent;
-//    }
     }
 }
